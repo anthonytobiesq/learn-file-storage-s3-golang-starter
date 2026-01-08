@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
     <data-source source="LOCAL" name="tubely" uuid="9e45ede0-20de-40c9-b7ef-968b56104ef4">
-      <driver-ref>sqlite.xerial</driver-ref>
+      <driver-ref>1619e28d-b059-4444-8812-121f307780c0</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/tubely.db</jdbc-url>
