@@ -69,3 +69,30 @@ func evaluateAspectRatio(w, h int) string {
 		return "other"
 	}
 }
+
+func ProcessVideoForFastStart(filePath string) (string, error) {
+	//Create a new string for the output file path. I just appended .processing to the input file (which should be the path to the temp file on disk)
+	outputFilePath := filePath + ".processing"
+
+	//Create a new exec.Cmd using exec.Command
+	//The command is ffmpeg and the arguments are -i, the input file path, -c, copy, -movflags, faststart, -f, mp4 and the output file path.
+	cmd := exec.Command(
+		"ffmpeg",
+		"-i",
+		filePath,
+		"-c",
+		"copy",
+		"-movflags",
+		"faststart",
+		"-f",
+		"mp4",
+		outputFilePath,
+	)
+
+	err := cmd.Run()
+	if err != nil {
+		return "", fmt.Errorf("failed running ffmpeg: %v", err)
+	}
+
+	return outputFilePath, nil
+}
